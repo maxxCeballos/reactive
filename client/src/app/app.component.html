@@ -1,0 +1,11 @@
+<body>
+    
+  <div>
+    <label>Investors Exchange (IEX) Trading</label>
+  </div>
+
+  <li *ngFor="let dato of data; index as i; first as isFirst">
+    name: {{dato.venueName}}  spread: ${{dato.effectiveSpread}} quoted: ${{dato.effectiveQuoted}} price improvement: ${{dato.priceImprovement}}
+  </li> 
+
+</body>
