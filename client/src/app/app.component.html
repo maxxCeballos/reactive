@@ -1,13 +1,40 @@
-<body>
-    
-  <div>
-    <label>Python Chat</label>
-  </div>
+<div class="container content">
+  <div class="row">
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+        <div class="card">
+          <div class="card-header">Bienvenidos al chat</div>
+          <div class="card-body height3">
+            <ul class="chat-list">
 
-  <li *ngFor="let conver of conversacion; index as i; first as isFirst">
-    {{conver.usuario}}: {{conver.mensaje}}
+              
+  <li class="in" *ngFor="let conver of conversacion; index as i; first as isFirst">
+    <div class="chat-img">
+      <img alt="Avtar" src="https://bootdey.com/img/Content/avatar/avatar1.png">
+    </div>
+    <div class="chat-body">
+      <div class="chat-message">
+        <h5>{{conver.usuario}}</h5>
+        <p>{{conver.mensaje}}</p>
+      </div>
+    </div>
   </li> 
-  
 
-
-</body>
+  <li class="out">
+    <div class="chat-img">
+      <img alt="Avtar" src="https://bootdey.com/img/Content/avatar/avatar6.png">
+    </div>
+    <div class="chat-body">
+      <div class="chat-message">
+        <h5>otro usuario</h5>
+        <p> mensaje</p>
+      </div>
+    </div>
+  </li>
+             
+            </ul>
+          </div>
+        </div>
+      </div>
+     
+  </div>
+</div>

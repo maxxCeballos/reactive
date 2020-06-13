@@ -4,30 +4,46 @@ const app = require('express')();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 const port = 3000;
-
 // salas de chat
 const python = io.of('/python');
 const javascript = io.of('/javascript');
 
-
-app.get('/python/:user/:mensaje', (req, res) => {
-    let dato = {
-        user : req.params.user,
-        mensaje: req.params.mensaje
-    }
-    python.emit('chat-message', dato);
-})
-
-
-python.on('connection', function(socket){
-
-  socket.on("mensaje", mensaje => {
-
-    python.emit('chat-message', mensaje);
-  
-  });
-
+// app.get('/python/:user/:mensaje', (req, res) => {
+//     let dato = {
+//         user : req.params.user,
+//         mensaje: req.params.mensaje
+//     }
+//     python.emit('chat-message', dato);
+// })
+app.get('/', function(req, res) {
+  res.sendfile(__dirname + '/index.html');
+  python.emit('chat-message', {
+        user : 'NAHIR',
+        mensaje: 'HOLAAA'
+    });
 });
+
+// app.get('/', (req, res) => {
+//   let dato = {
+//       user : req.params.user,
+//       mensaje: req.params.mensaje
+//   }
+//   python.emit('chat-message', {
+//     user : 'NAHIR',
+//     mensaje: 'HOLLAAA'
+// });
+// })
+
+
+// python.on('connection', function(socket){
+
+//   socket.on("mensaje", mensaje => {
+
+//     python.emit('chat-message', mensaje);
+  
+//   });
+
+// });
 
 
 // javascript.on('connection', function(socket){
